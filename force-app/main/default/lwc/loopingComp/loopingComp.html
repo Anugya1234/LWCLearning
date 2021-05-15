@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Template Looping" class="slds-m-around_small">
+  
+      <lightning-input type="text" label="Car Name" onkeyup={inputHandler} class="slds-m-around_small"></lightning-input>
+      New car name is : {userName}
+      <div class="slds-m-around_small">
+        <template for:each={companyList} for:item="car">
+          <p key={car.Id}>
+             <strong> {car.company}</strong> &nbsp;
+             {car.employeeCode}
+            </p>
+        </template>
+      </div>
+
+    </lightning-card>
+    <lightning-card title="Looping Iterator" class="slds-m-around_small">
+      <div class="slds-m-around_small">
+      <template iterator:name={companyList}>
+         <div key={name.value.Id}>
+           <ul class="slds-has-dividers_around-space">
+            <template if:true={name.first}>
+              <div class="slds-box slds-theme_shade">
+                <strong>List of Top Companies.</strong>
+              </div>
+            </template>
+            <li class="slds-item">
+              {name.value.company}
+              {name.value.employeeCode}
+          </li>
+          <template if:true={name.last}>
+            <div class="slds-box slds-theme_shade">
+              <strong>List of Top Companies end.</strong>
+            </div>
+          </template>
+           </ul>
+         </div>
+      </template>
+      </div>
+
+    </lightning-card>
+</template>

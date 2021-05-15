@@ -1,0 +1,25 @@
+<template>
+  <lightning-card  title="Two Way Binding">
+    <div class="slds-m-around_small">
+    <lightning-input type="text" label="Enter New Designation" onkeyup={changeTitleHandler}></lightning-input>
+
+      My name is - {myName} and my designation is---{title}
+    <p slot="footer">Card Footer</p>
+  </div>
+</lightning-card>
+
+<lightning-card  title="Track Property" class="slds-m-around_small">
+  <div class="slds-m-around_small">
+  <lightning-input type="text" label="My City" onkeyup={trackHandler}></lightning-input>
+
+    My city name is - {myAddress.myCity} 
+    <template for:each={myAddList} for:item="item" key={index}>
+      <li key={index}>
+        {item}
+    </li>
+    </template>
+  <p slot="footer">Card Footer</p>
+</div>
+</lightning-card>
+
+</template>
